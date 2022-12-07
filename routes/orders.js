@@ -23,8 +23,18 @@ router.post("/", (req, res) => {
         .catch(err => res.status(422).json(err))
 });
 
-router.patch("/", (req, res) => {
-    res.json('PATCH Success');
+router.patch("/:order_id", (req, res) => {
+    const id = req.params.order_id;
+    const updatedOrder = new Order({
+        items: req.body.items, 
+        name: req.body.name,
+        address: req.body.address,
+    });
+
+    Order.findByIdAndUpdate(id, updatedOrder)
+        .then((order) => res.json({order}))
+        .catch((err) => res.status(404).json(err));
+
 });
 
 router.delete("/:order_id", (req, res) => {
