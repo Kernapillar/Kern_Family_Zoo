@@ -1,13 +1,13 @@
 import React from "react";
 import {Order} from "./Order.jsx";
 
-export const Orders = orders => { // functional component version
+export const Orders = ({orders}) => { // functional component version
 
     const ordersList = orders.map(order => <Order key={order.id} order={order} />);
 
     return (
         <ul className="orders-list">
-            {ordersList}
+            Orders: {ordersList}
         </ul>
     )
 };
