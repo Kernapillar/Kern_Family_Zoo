@@ -7,7 +7,7 @@ export const Orders = ({orders}) => { // functional component version
 
     return (
         <ul className="orders-list">
-            Orders: {ordersList}
+            {ordersList}
         </ul>
     )
 };
