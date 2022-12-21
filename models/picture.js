@@ -20,4 +20,4 @@ const PictureSchema = Schema({
 
 });
 
-export const Order = mongoose.model("Order", OrderSchema);
+export const Picture = mongoose.model("Picture", PictureSchema);
