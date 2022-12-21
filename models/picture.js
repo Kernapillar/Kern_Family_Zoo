@@ -8,7 +8,11 @@ const PictureSchema = Schema({
         required: true,
 
     }, 
-    desc: {
+    name: {
+        type: String,
+        required: true,
+    }, 
+    scientificName: {
         type: String,
         required: true,
     }, 
