@@ -1,9 +1,16 @@
 import { useState } from 'react'
-import { Orders } from './components/Orders'
-import { OrderForm } from './components/OrderForm'
+import { Pictures } from './components/Pictures'
 import './App.css'
 
 function App() {
+
+  const pics = [{id: 1, picture: "abc"}, 
+                {id: 2, picture: "def"},
+                {id: 3, picture: "ghi"},
+                {id: 4, picture: "jkl"}, 
+                {id: 5, picture: "mnop"},
+                {id: 6, picture: "qrs"},
+  ]
 
   return (
     <>
@@ -11,7 +18,7 @@ function App() {
         navbar here
       </div>
       <div className='content'>
-        pics go here
+        <Pictures pictures={pics}/>
       </div>
     </>
   )
