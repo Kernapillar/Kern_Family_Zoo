@@ -1,7 +1,7 @@
 import React from "react";
 import {Picture} from "./Picture.jsx";
 
-export const Pictures = ({pictures}) => { // functional component version
+export const Pictures = ({pictures}) => { 
 
     const picturesList = pictures.map(picture => <Picture key={picture.id} picture={picture.picture} />);
 
@@ -12,11 +12,3 @@ export const Pictures = ({pictures}) => { // functional component version
     )
 };
 
-
-// class OrdersClass extends React.Component { // class component version
-//     constructor(props) {
-//         super(props);
-//     }
-
-//     render();
-// };
