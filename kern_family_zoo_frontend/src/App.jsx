@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Pictures } from './components/Pictures'
+import {Gallery} from './components/Gallery'
 import './App.css'
 // import Img1 from '../testPictures/Img1.jpeg'
 // import Img2 from '../testPictures/Img2.jpeg'
@@ -45,9 +46,12 @@ function App() {
       <div className='nav'>
         navbar here
       </div>
-      <div className='content'>
+      
+       <Gallery/>
+      
+      {/* <div className='content'>
         <Pictures />
-      </div>
+      </div> */}
     </>
   )
 }

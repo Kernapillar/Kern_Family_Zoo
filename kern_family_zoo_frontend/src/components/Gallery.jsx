@@ -1,7 +1,5 @@
 import React from "react";
-import {Picture} from "./Picture.jsx";
-import '../styles/gallery.css'
-import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
+import Masonry, {ResponsiveMasonry} from "react-responsive-masonry";
 import Img1 from '../../testPictures/Img1.jpeg'
 import Img2 from '../../testPictures/Img2.jpeg'
 import Img3 from '../../testPictures/Img3.jpeg'
@@ -20,7 +18,7 @@ import Img15 from '../../testPictures/Img15.png'
 import Img16 from '../../testPictures/Img16.jpg'
 import Img17 from '../../testPictures/Img17.png'
 
-export const Pictures = () => { 
+export const Gallery = () => {
 
     const pics = [{id: 1, src: Img1, picture: "abc"}, 
                 {id: 2, src: Img2, picture: "def"},
@@ -41,25 +39,10 @@ export const Pictures = () => {
                 {id: 17, src: Img17, picture: "mnop"},
   ]
 
-    // const picturesList = pics.map(picture => <Picture key={picture.id}
-    //     picture={picture.picture} src={picture.src}/>);
-
-    // return (
-    //     <div className="gallery">
-    //         {pics.map((pic, idx) => {
-    //             return(
-    //                 <div className="picture" key={idx}>
-    //                     <img src={pic.src} alt="" />
-    //                 </div>
-    //             )
-    //         })}
-    //     </div>
-    // )
-
     return (
+        
             <Masonry>
                 {pics.map((image, i) => (
-                    
                     <img
                         key={i}
                         src={image.src}
@@ -69,5 +52,4 @@ export const Pictures = () => {
                 ))}
             </Masonry>
     )
-};
-
+}
