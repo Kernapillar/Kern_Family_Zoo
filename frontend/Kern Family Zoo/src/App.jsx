@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import { GalleryColumn } from './components/galleryColumn';
 import Img1 from './testPictures/Img1.jpeg'
 import Img2 from './testPictures/Img2.jpeg'
 import Img3 from './testPictures/Img3.jpeg'
@@ -20,6 +21,8 @@ import Img17 from './testPictures/Img17.png'
 
 function App() {
 
+  const [colums, setColums] = useState(3);
+
   const pics = [{id: 1, src: Img1, picture: "abc"}, 
   {id: 2, src: Img2, picture: "def"},
   {id: 3, src: Img3, picture: "ghi"},
@@ -38,11 +41,9 @@ function App() {
   {id: 16, src: Img16, picture: "jkl"}, 
   {id: 17, src: Img17, picture: "mnop"},
 ]
-
+  console.log("APP PICS", pics)
   return (
-    <div>
-      hello
-    </div>
+    <GalleryColumn pics={pics}/>
   )
 }
 
