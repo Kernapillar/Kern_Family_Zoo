@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import './styles/gallery.css'
 import { GalleryColumn } from './components/galleryColumn';
 import Img1 from './testPictures/Img1.jpeg'
 import Img2 from './testPictures/Img2.jpeg'
@@ -21,7 +22,7 @@ import Img17 from './testPictures/Img17.png'
 
 function App() {
 
-  const [colums, setColums] = useState(3);
+  const [columns, setColumns] = useState(3);
 
   const pics = [{id: 1, src: Img1, picture: "abc"}, 
   {id: 2, src: Img2, picture: "def"},
@@ -40,10 +41,47 @@ function App() {
   {id: 15, src: Img15, picture: "ghi"},
   {id: 16, src: Img16, picture: "jkl"}, 
   {id: 17, src: Img17, picture: "mnop"},
-]
-  console.log("APP PICS", pics)
+  ]
+  const cycle = () => {
+    setColumns(1 + ((columns + 1) % 3))
+  }
+
+  const colArr = [[],[], []];
+
+  const renderCols = () => {
+    if (columns === 1) {
+      return (
+        <div className='gallery'>
+        <GalleryColumn pics={colArr[0]}/>
+      </div>
+      )
+    } else if (columns === 2) {
+      return (
+        <div className='gallery'>
+        <GalleryColumn pics={colArr[0]}/>
+        <GalleryColumn pics={colArr[1]}/>
+      </div>
+      )
+    } else {
+      return (
+        <div className='gallery'>
+        <GalleryColumn pics={colArr[0]}/>
+        <GalleryColumn pics={colArr[1]}/>
+        <GalleryColumn pics={colArr[2]}/>
+      </div>
+      )
+    }
+  };
+  for (let i = 0; i < pics.length; i++) {
+    colArr[i % columns].push(pics[i])
+  }
+
   return (
-    <GalleryColumn pics={pics}/>
+    <>
+      <button onClick={() => {cycle()}}>cycle</button>
+     {renderCols()}
+  </>
+    
   )
 }
 
