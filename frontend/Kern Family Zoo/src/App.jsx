@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect} from 'react'
 import './App.css'
 import './styles/gallery.css'
 import { GalleryColumn } from './components/galleryColumn';
@@ -23,6 +23,25 @@ import Img17 from './testPictures/Img17.png'
 function App() {
 
   const [columns, setColumns] = useState(3);
+  const [width, setWidth] = useState(window.innerWidth)
+
+  useEffect(() => {
+    if (width < 900) {
+      setColumns(1);
+    } else if (width < 1400) {
+      setColumns(2);
+    } else {
+      setColumns(3)
+    }
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+
+  });
+  
+
 
   const pics = [{id: 1, src: Img1, picture: "abc"}, 
   {id: 2, src: Img2, picture: "def"},
@@ -78,7 +97,7 @@ function App() {
 
   return (
     <>
-      <button onClick={() => {cycle()}}>cycle</button>
+      <button onClick={() => {cycle()}}>{width}</button>
      {renderCols()}
   </>
     
