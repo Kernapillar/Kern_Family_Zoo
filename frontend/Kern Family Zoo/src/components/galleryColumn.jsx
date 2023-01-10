@@ -10,7 +10,7 @@ export const GalleryColumn = (props) => {
                     <img
                         key={i}
                         src={image.src}
-                        style={{width: "450px", display: "block"}}
+                        style={{width: "330px", display: "block"}}
                         alt=""
                     />
             ))}

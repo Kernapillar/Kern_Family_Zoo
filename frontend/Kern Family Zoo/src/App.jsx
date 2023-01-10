@@ -22,16 +22,20 @@ import Img17 from './testPictures/Img17.png'
 
 function App() {
 
-  const [columns, setColumns] = useState(3);
+  const [columns, setColumns] = useState(5);
   const [width, setWidth] = useState(window.innerWidth)
 
   useEffect(() => {
-    if (width < 900) {
+    if (width < 850) {
       setColumns(1);
-    } else if (width < 1400) {
+    } else if (width < 1200) {
       setColumns(2);
+    } else if (width < 1500) {
+      setColumns(3);
+    } else if (width < 1700) {
+      setColumns(4);
     } else {
-      setColumns(3)
+      setColumns(5)
     }
     const handleResize = () => setWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
@@ -61,11 +65,13 @@ function App() {
   {id: 16, src: Img16, picture: "jkl"}, 
   {id: 17, src: Img17, picture: "mnop"},
   ]
+
+  
   const cycle = () => {
-    setColumns(1 + ((columns + 1) % 3))
+    setColumns(1 + ((columns + 1) % 5))
   }
 
-  const colArr = [[],[], []];
+  const colArr = [[],[], [], [], []];
 
   const renderCols = () => {
     if (columns === 1) {
@@ -81,12 +87,31 @@ function App() {
         <GalleryColumn pics={colArr[1]}/>
       </div>
       )
+    } else if (columns === 3) {
+      return (
+        <div className='gallery'>
+        <GalleryColumn pics={colArr[0]}/>
+        <GalleryColumn pics={colArr[1]}/>
+        <GalleryColumn pics={colArr[2]}/>
+      </div>
+      )
+    }  else if (columns === 4) {
+      return (
+        <div className='gallery'>
+        <GalleryColumn pics={colArr[0]}/>
+        <GalleryColumn pics={colArr[1]}/>
+        <GalleryColumn pics={colArr[2]}/>
+        <GalleryColumn pics={colArr[3]}/>
+      </div>
+      )
     } else {
       return (
         <div className='gallery'>
         <GalleryColumn pics={colArr[0]}/>
         <GalleryColumn pics={colArr[1]}/>
         <GalleryColumn pics={colArr[2]}/>
+        <GalleryColumn pics={colArr[3]}/>
+        <GalleryColumn pics={colArr[4]}/>
       </div>
       )
     }
