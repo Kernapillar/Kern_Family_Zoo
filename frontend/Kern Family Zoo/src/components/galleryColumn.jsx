@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-
+import '../styles/gallery.css'
 
 export const GalleryColumn = (props) => {
         if (!props.pics) return null; 
@@ -10,7 +10,7 @@ export const GalleryColumn = (props) => {
                     <img
                         key={i}
                         src={image.src}
-                        style={{width: "330px", display: "block"}}
+                        
                         alt=""
                     />
             ))}
