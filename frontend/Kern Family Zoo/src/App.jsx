@@ -2,23 +2,34 @@ import { useState, useEffect} from 'react'
 import './App.css'
 import './styles/gallery.css'
 import { GalleryColumn } from './components/galleryColumn';
-import Img1 from './testPictures/Img1.jpeg'
-import Img2 from './testPictures/Img2.jpeg'
-import Img3 from './testPictures/Img3.jpeg'
-import Img4 from './testPictures/Img4.jpeg'
-import Img5 from './testPictures/Img5.jpeg'
-import Img6 from './testPictures/Img6.jpeg'
-import Img7 from './testPictures/Img7.jpeg'
-import Img8 from './testPictures/Img8.jpeg'
-import Img9 from './testPictures/Img9.jpg'
-import Img10 from './testPictures/Img10.jpeg'
-import Img11 from './testPictures/Img11.jpeg'
-import Img12 from './testPictures/Img12.jpeg'
-import Img13 from './testPictures/Img13.jpeg'
-import Img14 from './testPictures/Img14.jpeg'
-import Img15 from './testPictures/Img15.png'
-import Img16 from './testPictures/Img16.jpg'
-import Img17 from './testPictures/Img17.png'
+
+import frog1 from './assets/GoE_pics/KS Frog x 14 11.jpg';
+import bird1 from './assets/GoE_pics/KS Moustache 14 11.jpg'; 
+import snake1 from './assets/GoE_pics/MDK_20070127_01772.jpg';
+import snake2 from './assets/GoE_pics/MDK_NGK_Cryptelytrops venustus_.jpg';
+import chameleon1 from './assets/GoE_pics/MDKern_20070210_00123from 2005 to 2006.jpg';
+import spider1 from './assets/GoE_pics/MDKern_Poecilotheria metallica - Saphaire Ornamental Tree Spider_0546.jpg';
+import spider2 from './assets/GoE_pics/MDKern_Poecilotheria rufilata, Slate Red Ornamental Tarantula_0560.jpg';
+import spider3 from './assets/GoE_pics/MDKern_Thelcticopis modesta  - Malaysian Orange Huntsman_0777.jpg';
+import bird2 from './assets/GoE_pics/Parc  30 24 Blue Angel jpg.jpg';
+import snake3 from './assets/GoE_pics/parc atheris squam blue eyes.jpg';
+import snake4 from './assets/GoE_pics/parc atheris squam red orange.jpg';
+import bird3 from './assets/GoE_pics/parc fa la la.jpg';
+import bird4 from './assets/GoE_pics/parc maile angel.jpg';
+import lizard1 from './assets/GoE_pics/parc monkey tail skink.jpg';
+import bird5 from './assets/GoE_pics/parc spock eating.jpg';
+import bird6 from './assets/GoE_pics/parc vcp 14 11.jpg';
+import snake5 from './assets/GoE_pics/parc_Boiga nigrocepes, Black Headed Cat Eye Snake_0136.jpg';
+import lizard2 from './assets/GoE_pics/parc_Iguana iguana, albino_0410.jpg';
+import spider4 from './assets/GoE_pics/parc_Megaphobema robustum, Columbian Giant Redleg Tarantula_0457-Edit.jpg';
+import spider5 from './assets/GoE_pics/parc_Poecilotheria metallica - Saphaire Ornamental Tree Spider_0547.jpg';
+import frog2 from './assets/GoE_pics/parc_Theloderma corticale, Vietnamese Mossy Frog_0782.jpg';
+import frog3 from './assets/GoE_pics/parc_UKR_Anotheca spinosa, Spiny headed Treefrog_33.jpg';
+import gecko1 from './assets/GoE_pics/parc_Uroplatus fimbriatus_0877.jpg';
+import gecko2 from './assets/GoE_pics/parc_Uroplatus sikorae - Mossy leaf-tailed gecko_0921.jpg';
+import snake6 from './assets/GoE_pics/parc_Usamba Bush Viper (Atheris cerataphora)_40.jpg';
+
+    
 
 function App() {
 
@@ -26,7 +37,7 @@ function App() {
   const [width, setWidth] = useState(window.innerWidth)
 
   useEffect(() => {
-    if (width < 850) {
+    if (width < 700) {
       setColumns(1);
     } else if (width < 1200) {
       setColumns(2);
@@ -47,23 +58,32 @@ function App() {
   
 
 
-  const pics = [{id: 1, src: Img1, picture: "abc"}, 
-  {id: 2, src: Img2, picture: "def"},
-  {id: 3, src: Img3, picture: "ghi"},
-  {id: 4, src: Img4, picture: "jkl"}, 
-  {id: 5, src: Img5, picture: "mnop"},
-  {id: 6, src: Img6, picture: "qrs"},
-  {id: 7, src: Img7, picture: "abc"}, 
-  {id: 8, src: Img8, picture: "def"},
-  {id: 9, src: Img9, picture: "ghi"},
-  {id: 10, src: Img10, picture: "jkl"}, 
-  {id: 11, src: Img11, picture: "mnop"},
-  {id: 12, src: Img12, picture: "qrs"},
-  {id: 13, src: Img13, picture: "abc"}, 
-  {id: 14, src: Img14, picture: "def"},
-  {id: 15, src: Img15, picture: "ghi"},
-  {id: 16, src: Img16, picture: "jkl"}, 
-  {id: 17, src: Img17, picture: "mnop"},
+  const pics = [{id: 1, src: snake6, picture: "ghi"},
+  {id: 2, src: frog1, picture: "def"},
+  {id: 3, src: bird1, picture: "ghi"},
+  {id: 4, src: snake1, picture: "jkl"}, 
+  {id: 5, src: snake2,  picture: "mnop"},
+  {id: 6, src: chameleon1, picture: "qrs"},
+  {id: 7, src: spider1, picture: "abc"}, 
+  {id: 8, src: spider2, picture: "def"},
+  {id: 9, src: spider3, picture: "ghi"},
+  {id: 10, src: bird2, picture: "jkl"}, 
+  {id: 11, src: snake3, picture: "mnop"},
+  {id: 12, src: snake4, picture: "qrs"},
+  {id: 13, src: bird3, picture: "abc"}, 
+  {id: 14, src: bird4, picture: "def"},
+  {id: 15, src: lizard1, picture: "ghi"},
+  {id: 16, src: bird5, picture: "jkl"}, 
+  {id: 17, src: bird6, picture: "mnop"},
+  {id: 18, src: snake5, picture: "abc"}, 
+  {id: 19, src: lizard2, picture: "def"},
+  {id: 20, src: spider4, picture: "ghi"},
+  {id: 21, src: spider5, picture: "jkl"}, 
+  {id: 22, src: frog2, picture: "mnop"},
+  {id: 23, src: frog3, picture: "qrs"},
+  {id: 24, src: gecko1, picture: "abc"}, 
+  {id: 25, src: gecko2, picture: "def"},
+  
   ]
 
   
@@ -122,7 +142,7 @@ function App() {
 
   return (
     <>
-      <button onClick={() => {cycle()}}>{width}</button>
+      <button>{width}</button>
      {renderCols()}
   </>
     
