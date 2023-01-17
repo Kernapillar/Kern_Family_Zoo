@@ -158,7 +158,7 @@ function App() {
   return (
     <>
       <img src={LOGO} alt="" className='logo' />
-      
+      {renderNav()}
       {renderCols()}
     </>
     
