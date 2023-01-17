@@ -2,7 +2,7 @@ import { useState, useEffect} from 'react'
 import './App.css'
 import './styles/gallery.css'
 import { GalleryColumn } from './components/galleryColumn';
-
+import LOGO from './assets/MDKern-LOGO.png';
 import frog1 from './assets/GoE_pics/KS Frog x 14 11.jpg';
 import bird1 from './assets/GoE_pics/KS Moustache 14 11.jpg'; 
 import snake1 from './assets/GoE_pics/MDK_20070127_01772.jpg';
@@ -142,9 +142,9 @@ function App() {
 
   return (
     <>
-      <button>{width}</button>
-     {renderCols()}
-  </>
+      <img src={LOGO} alt="" className='logo' />
+      {renderCols()}
+    </>
     
   )
 }

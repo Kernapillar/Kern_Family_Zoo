@@ -11,7 +11,7 @@ body {
 }
 
 #root {
-  background-color: grey;
+  background-color: rgba(25, 25, 25, 1);
   width: 100%;
   min-height: 100vh;
   display: flex;
