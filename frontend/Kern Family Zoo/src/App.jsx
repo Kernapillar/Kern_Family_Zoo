@@ -151,8 +151,8 @@ function App() {
       )
     }
   };
-  for (let i = 0; i < pics.length; i++) {
-    colArr[i % columns].push(pics[i])
+  for (let i = 0; i < images.length; i++) {
+    colArr[i % columns].push(images[i])
   }
 
   return (
