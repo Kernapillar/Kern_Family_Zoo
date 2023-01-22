@@ -10,7 +10,6 @@ export const GalleryColumn = (props) => {
                     <img
                         key={i}
                         src={image.src}
-                        
                         alt=""
                     />
             ))}
