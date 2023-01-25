@@ -96,11 +96,11 @@ function App() {
   const renderNav = () => {
     return (
       <nav className='navbar'>
-        <button onClick={() => updateFilter(-1)}>clear filter</button>
-        <button onClick={() => updateFilter(0)}>0 legs</button>
-        <button onClick={() => updateFilter(2)}>2 legs</button>
-        <button onClick={() => updateFilter(4)}>4 legs</button>
-        <button onClick={() => updateFilter(8)}>8 legs</button>
+        <button className='filter-button' onClick={() => updateFilter(-1)}>clear filter</button>
+        <button className='filter-button' onClick={() => updateFilter(0)}>0 legs</button>
+        <button className='filter-button' onClick={() => updateFilter(2)}>2 legs</button>
+        <button className='filter-button' onClick={() => updateFilter(4)}>4 legs</button>
+        <button className='filter-button' onClick={() => updateFilter(8)}>8 legs</button>
       </nav>
     )
   };

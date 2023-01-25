@@ -26,5 +26,20 @@
     padding: 20px 10px;
 }
 
+.navbar {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
 
+.filter-button {
+    color: white;
+    background: none;
+    font-weight: 800;
+    font-size: larger;
 
+}
+
+.filter-button:hover {
+    border: 1px solid white;
+}
