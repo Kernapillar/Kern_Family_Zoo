@@ -28,7 +28,6 @@ import frog3 from './assets/GoE_pics/parc_UKR_Anotheca spinosa, Spiny headed Tre
 import gecko1 from './assets/GoE_pics/parc_Uroplatus fimbriatus_0877.jpg';
 import gecko2 from './assets/GoE_pics/parc_Uroplatus sikorae - Mossy leaf-tailed gecko_0921.jpg';
 import snake6 from './assets/GoE_pics/parc_Usamba Bush Viper (Atheris cerataphora)_40.jpg';
-import { set } from 'mongoose';
 
     
 
