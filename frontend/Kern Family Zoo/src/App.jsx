@@ -5,6 +5,7 @@ import './styles/gallery.css'
 import { GalleryColumn } from './components/galleryColumn';
 import Gallery from './components/gallery'
 import LOGO from './assets/MDKern-LOGO.png';
+import About from './components/about';
 
 
 import frog1 from './assets/GoE_pics/KS Frog x 14 11.jpg';
@@ -65,12 +66,23 @@ function App() {
   
   ]
 
+  const navButtons = () => {
+    return (
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/about">About</Link></li>
+      </ul>
+    )
+  };
 
   return (
     <BrowserRouter>
       <img src={LOGO} alt="" className='logo' />
+      {navButtons()}
       <Routes>
-        <Route path="/" element={<Gallery pics={pics}/>}/>
+        <Route exact path="/about" element={<About/>}/>
+        <Route exact path="/" element={<Gallery pics={pics}/>}/>
+
       </Routes>
     
     </BrowserRouter>
