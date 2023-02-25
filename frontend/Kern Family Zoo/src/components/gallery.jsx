@@ -65,7 +65,7 @@ const Gallery = (props) =>{
     return (
       <div className='gallery'>
         {colArr.map((col, i) => (
-          <GalleryColumn key={i} pics={col}/>
+          <GalleryColumn key={i} pics={col} openModal={handleOpenModal}/>
         ))}
       </div>
     );
@@ -73,6 +73,7 @@ const Gallery = (props) =>{
 
 
   const handleOpenModal = (picture) => {
+    console.log("HI", picture);
     setModalPicture(picture);
     setModalIsOpen(true);
   }
@@ -85,7 +86,7 @@ const Gallery = (props) =>{
     <>
       {renderNav()}
       {renderCols()}
-      <Modal isOpen={modalIsOpen} onClose={handleCloseModal} imgUrl={''}/>
+      {modalIsOpen ? <Modal isOpen={modalIsOpen} onClose={handleCloseModal} imgUrl={modalPicture}/> : null}
     </>
     
   )

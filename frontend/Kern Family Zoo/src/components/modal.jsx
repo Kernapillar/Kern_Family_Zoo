@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from "react";
-// import '../styles/modal.css';
+import '../styles/modal.css';
 
 const Modal = ({isOpen, onClose, imgUrl}) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -14,7 +14,7 @@ const Modal = ({isOpen, onClose, imgUrl}) => {
     };
 
     return (
-        <div className={`modal ${modalIsOpen ? 'open' : ""}`}>
+        <div className={`modal ${modalIsOpen ? '-open' : ""}`}>
              <div className="modal-content">
                 <span className="modal-close" onClick={handleClose}>
                     &times;
