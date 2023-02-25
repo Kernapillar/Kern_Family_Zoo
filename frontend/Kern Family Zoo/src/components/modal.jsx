@@ -1,8 +1,29 @@
 import React, {useState, useEffect } from "react";
 // import '../styles/modal.css';
 
-const Modal = ({isOpen, imgUrl}) => {
-    
+const Modal = ({isOpen, onClose, imgUrl}) => {
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
+    useEffect(() => {
+        setModalIsOpen(isOpen);
+    }, [isOpen]);
+
+    const handleClose = () => {
+        setModalIsOpen(false);
+        onClose();
+    };
+
+    return (
+        <div className={`modal ${modalIsOpen ? 'open' : ""}`}>
+             <div className="modal-content">
+                <span className="modal-close" onClick={handleClose}>
+                    &times;
+                </span>
+                <img src={imgUrl} alt="modal" />
+             </div>
+        </div>
+    )
+
 };
 
 
