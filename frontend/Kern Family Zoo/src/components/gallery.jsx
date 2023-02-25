@@ -2,12 +2,16 @@ import { useState, useEffect} from 'react'
 import '../App.css'
 import '../styles/gallery.css'
 import { GalleryColumn } from './galleryColumn'
+import Modal from './modal';
 
 
 const Gallery = (props) =>{
-    const [columns, setColumns] = useState(5);
-    const [width, setWidth] = useState(window.innerWidth);
-    const [images, setImages] = useState(props.pics);
+  const [columns, setColumns] = useState(5);
+  const [width, setWidth] = useState(window.innerWidth);
+  const [images, setImages] = useState(props.pics);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalPicture, setModalPicture] = useState(null);
+
 
   useEffect(() => {
     if (width < 700) {
@@ -49,59 +53,39 @@ const Gallery = (props) =>{
     )
   };
 
-  const colArr = [[],[], [], [], []];
-
   const renderCols = () => {
-    if (columns === 1) {
-      return (
-        <div className='gallery'>
-        <GalleryColumn pics={colArr[0]}/>
+    const colCount = Math.min(columns, 5); // Limit the column count to 5
+    const colArr = images.reduce((acc, img, i) => {
+      const colIndex = i % colCount;
+      acc[colIndex] = acc[colIndex] || [];
+      acc[colIndex].push(img);
+      return acc;
+    }, []);
+  
+    return (
+      <div className='gallery'>
+        {colArr.map((col, i) => (
+          <GalleryColumn key={i} pics={col}/>
+        ))}
       </div>
-      )
-    } else if (columns === 2) {
-      return (
-        <div className='gallery'>
-        <GalleryColumn pics={colArr[0]}/>
-        <GalleryColumn pics={colArr[1]}/>
-      </div>
-      )
-    } else if (columns === 3) {
-      return (
-        <div className='gallery'>
-        <GalleryColumn pics={colArr[0]}/>
-        <GalleryColumn pics={colArr[1]}/>
-        <GalleryColumn pics={colArr[2]}/>
-      </div>
-      )
-    }  else if (columns === 4) {
-      return (
-        <div className='gallery'>
-        <GalleryColumn pics={colArr[0]}/>
-        <GalleryColumn pics={colArr[1]}/>
-        <GalleryColumn pics={colArr[2]}/>
-        <GalleryColumn pics={colArr[3]}/>
-      </div>
-      )
-    } else {
-      return (
-        <div className='gallery'>
-        <GalleryColumn pics={colArr[0]}/>
-        <GalleryColumn pics={colArr[1]}/>
-        <GalleryColumn pics={colArr[2]}/>
-        <GalleryColumn pics={colArr[3]}/>
-        <GalleryColumn pics={colArr[4]}/>
-      </div>
-      )
-    }
+    );
   };
-  for (let i = 0; i < images.length; i++) {
-    colArr[i % columns].push(images[i])
+
+
+  const handleOpenModal = (picture) => {
+    setModalPicture(picture);
+    setModalIsOpen(true);
+  }
+  const handleCloseModal = () => {
+    setModalPicture(null);
+    setModalIsOpen(false);
   }
 
   return (
     <>
       {renderNav()}
       {renderCols()}
+      <Modal isOpen={modalIsOpen} onClose={handleCloseModal} imgUrl={''}/>
     </>
     
   )
