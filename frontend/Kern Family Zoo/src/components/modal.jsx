@@ -14,7 +14,7 @@ const Modal = ({isOpen, onClose, imgUrl}) => {
     };
 
     return (
-        <div className={`modal ${modalIsOpen ? '-open' : ""}`}>
+        <div className={`modal`}>
              <div className="modal-content">
                 <span className="modal-close" onClick={handleClose}>
                     &times;
