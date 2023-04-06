@@ -9,6 +9,9 @@ p {
     font-weight: 600;
 }
 
-img {
+.about-content img {
     float: left;
+    height: auto;
+    width: 360px;
+    padding: 0 30px  30px 0;
 }
