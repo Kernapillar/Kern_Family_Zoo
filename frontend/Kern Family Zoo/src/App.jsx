@@ -4,6 +4,7 @@ import './App.css'
 import './styles/gallery.css'
 import { GalleryColumn } from './components/galleryColumn';
 import Gallery from './components/gallery'
+import Modal from './components/modal';
 import LOGO from './assets/MDKern-LOGO.png';
 import About from './components/about';
 
@@ -82,6 +83,7 @@ function App() {
       <Routes>
         <Route exact path="/about" element={<About/>}/>
         <Route exact path="/" element={<Gallery pics={pics}/>}/>
+        <Route path="/:pictureId"  element={<Gallery pics={pics}/>}/>
 
       </Routes>
     

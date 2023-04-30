@@ -11,7 +11,7 @@ export const GalleryColumn = (props) => {
                         key={i}
                         src={image.src}
                         alt=""
-                        onClick={() => props.openModal(image.src)}
+                        onClick={() => props.openModal(image)}
                     />
             ))}
             </div>

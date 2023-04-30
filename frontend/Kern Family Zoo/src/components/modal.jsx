@@ -1,8 +1,11 @@
 import React, {useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import '../styles/modal.css';
 
 const Modal = ({isOpen, onClose, imgUrl}) => {
+    console.log("MODAL INFO", isOpen, onClose, imgUrl);
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         setModalIsOpen(isOpen);
@@ -11,6 +14,7 @@ const Modal = ({isOpen, onClose, imgUrl}) => {
     const handleClose = () => {
         setModalIsOpen(false);
         onClose();
+        navigate(`/`);
     };
 
     return (

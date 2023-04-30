@@ -1,4 +1,5 @@
-import { useState, useEffect} from 'react'
+import { useState, useEffect,} from 'react'
+import { useNavigate } from 'react-router-dom'
 import '../App.css'
 import '../styles/gallery.css'
 import { GalleryColumn } from './galleryColumn'
@@ -11,6 +12,7 @@ const Gallery = (props) =>{
   const [images, setImages] = useState(props.pics);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [modalPicture, setModalPicture] = useState(null);
+  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -73,11 +75,14 @@ const Gallery = (props) =>{
 
 
   const handleOpenModal = (picture) => {
-    console.log("HI", picture);
-    setModalPicture(picture);
+    navigate(`/${picture.id}`);
+
+    console.log(picture)
+    setModalPicture(picture.src);
     setModalIsOpen(true);
   }
   const handleCloseModal = () => {
+    
     setModalPicture(null);
     setModalIsOpen(false);
   }
