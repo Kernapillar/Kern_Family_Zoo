@@ -82,8 +82,8 @@ function App() {
       {navButtons()}
       <Routes>
         <Route exact path="/about" element={<About/>}/>
-        <Route exact path="/" element={<Gallery pics={pics}/>}/>
-        <Route path="/:pictureId"  element={<Gallery pics={pics}/>}/>
+        <Route exact path="/" element={<Gallery pics={pics} modalState={false}/>}/>
+        <Route path="/:pictureId"  element={<Gallery pics={pics} modalState={true}/>}/>
 
       </Routes>
     

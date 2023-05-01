@@ -10,7 +10,7 @@ const Gallery = (props) =>{
   const [columns, setColumns] = useState(5);
   const [width, setWidth] = useState(window.innerWidth);
   const [images, setImages] = useState(props.pics);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(props.modalState);
   const [modalPicture, setModalPicture] = useState(null);
   const navigate = useNavigate();
 
