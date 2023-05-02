@@ -7,7 +7,6 @@ const Modal = ({isOpen, onClose, imgUrl, pictures, currentIdx}) => {
     const pictureId = useParams();
     const [currentPicture, setCurrentPicture] = useState(pictures[parseInt(pictureId.pictureId) - 1])
     const navigate = useNavigate();
-    console.log("MODAL INFO",currentPicture);
 
     useEffect(() => {
         setModalIsOpen(isOpen);
@@ -20,9 +19,22 @@ const Modal = ({isOpen, onClose, imgUrl, pictures, currentIdx}) => {
     };
 
     const handleNext = () => {
-        
+        if (currentPicture.id === pictures.length) {
+            setCurrentPicture(pictures[0]);
+            navigate(`/1`);
+            return;
+        }
         setCurrentPicture(pictures[currentPicture.id]);
         navigate(`/${currentPicture.id+1}`)
+    }
+    const handlePrev = () => {
+        if (currentPicture.id === 1) {
+            setCurrentPicture(pictures[pictures.length - 1]);
+            navigate(`/${pictures.length}`);
+            return;
+        }
+        setCurrentPicture(pictures[currentPicture.id - 2]);
+        navigate(`/${currentPicture.id - 1}`)
     }
    
 
@@ -33,7 +45,8 @@ const Modal = ({isOpen, onClose, imgUrl, pictures, currentIdx}) => {
                     &times;
                 </span>
                 <img src={currentPicture.src} alt="modal" />
-                <button onClick={handleNext}>click</button>
+                <button onClick={handleNext}>next</button>
+                <button onClick={handlePrev}>prev</button>
              </div>
         </div>
     )
