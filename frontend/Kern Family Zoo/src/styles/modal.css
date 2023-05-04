@@ -11,16 +11,24 @@
     align-items: center;
 }
 
-.modal-content {
+.modal-visual {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 70%;
     height: 80%;
     padding: 20px;
     background-color: rgb(25, 25, 25);
-    border: 1px solid white;
+    border: 1px solid blue;
+}
+
+.modal-controls {
+    height: 80%;
+    width: 20%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 1px solid green;
 }
 
 .modal-close {

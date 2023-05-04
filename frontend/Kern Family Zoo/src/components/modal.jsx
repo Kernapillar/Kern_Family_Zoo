@@ -40,13 +40,15 @@ const Modal = ({isOpen, onClose, imgUrl, pictures, currentIdx}) => {
 
     return (
         <div className={`modal`}>
-             <div className="modal-content">
+             <div className="modal-visual">
+                <img src={currentPicture.src} alt="modal" />
+             </div>
+             <div className="modal-controls">
+                <button onClick={handlePrev}>prev</button>
+                <button onClick={handleNext}>next</button>
                 <span className="modal-close" onClick={handleClose}>
                     &times;
                 </span>
-                <img src={currentPicture.src} alt="modal" />
-                <button onClick={handleNext}>next</button>
-                <button onClick={handlePrev}>prev</button>
              </div>
         </div>
     )
