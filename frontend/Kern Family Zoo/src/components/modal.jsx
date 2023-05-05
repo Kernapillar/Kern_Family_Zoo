@@ -2,11 +2,16 @@ import React, {useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import '../styles/modal.css';
 
-const Modal = ({isOpen, onClose, imgUrl, pictures, currentIdx}) => {
+const Modal = ({isOpen, onClose, pictures}) => {
+
+    const numPics = pictures.length;
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const pictureId = useParams();
-    const [currentPicture, setCurrentPicture] = useState(pictures[parseInt(pictureId.pictureId) - 1])
+    const pictureId = useParams().pictureId;
+    const [currentPicture, setCurrentPicture] = useState(pictures[pictureId - 1])
     const navigate = useNavigate();
+    console.log("PARAMS", pictureId)
+
+    
 
     useEffect(() => {
         setModalIsOpen(isOpen);
@@ -17,6 +22,13 @@ const Modal = ({isOpen, onClose, imgUrl, pictures, currentIdx}) => {
         onClose();
         navigate(`/`);
     };
+    
+    // const findIndex = () => {
+    //     for (let i = 0; i < numPics; i++) {
+    //         let pic = picture[i]; 
+    //         if (pic.id === pictureId)
+    //     }
+    // };
 
     const handleNext = () => {
         if (currentPicture.id === pictures.length) {
@@ -26,6 +38,7 @@ const Modal = ({isOpen, onClose, imgUrl, pictures, currentIdx}) => {
         }
         setCurrentPicture(pictures[currentPicture.id]);
         navigate(`/${currentPicture.id+1}`)
+        console.log('current', currentPicture)
     }
     const handlePrev = () => {
         if (currentPicture.id === 1) {
@@ -35,6 +48,8 @@ const Modal = ({isOpen, onClose, imgUrl, pictures, currentIdx}) => {
         }
         setCurrentPicture(pictures[currentPicture.id - 2]);
         navigate(`/${currentPicture.id - 1}`)
+        console.log( 'current', currentPicture)
+
     }
    
 
@@ -44,8 +59,8 @@ const Modal = ({isOpen, onClose, imgUrl, pictures, currentIdx}) => {
                 <img src={currentPicture.src} alt="modal" />
              </div>
              <div className="modal-controls">
-                <button onClick={handlePrev}>prev</button>
-                <button onClick={handleNext}>next</button>
+                <button onClick={handlePrev}>{`<<`}</button>
+                <button onClick={handleNext}>{`>>`}</button>
                 <span className="modal-close" onClick={handleClose}>
                     &times;
                 </span>

@@ -41,6 +41,7 @@ const Gallery = (props) =>{
       } else {
         setImages(props.pics.filter(img => img.legs === num))
       }
+      console.log(images)
   };
 
   const renderNav = () => {
@@ -75,10 +76,9 @@ const Gallery = (props) =>{
 
 
   const handleOpenModal = (picture) => {
+    console.log("PIC", picture)
     navigate(`/${picture.id}`);
 
-    // console.log(picture)
-    setModalPicture(picture.src);
     setModalIsOpen(true);
   }
   const handleCloseModal = () => {
@@ -91,7 +91,7 @@ const Gallery = (props) =>{
     <>
       {renderNav()}
       {renderCols()}
-      {modalIsOpen ? <Modal isOpen={modalIsOpen} onClose={handleCloseModal} imgUrl={modalPicture} pictures={images}/> : null}
+      {modalIsOpen ? <Modal isOpen={modalIsOpen} onClose={handleCloseModal} pictures={images}/> : null}
     </>
     
   )
