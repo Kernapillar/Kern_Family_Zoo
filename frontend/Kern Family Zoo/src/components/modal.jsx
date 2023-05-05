@@ -20,7 +20,7 @@ const Modal = ({isOpen, onClose, pictures}) => {
     const handleClose = () => {
         setModalIsOpen(false);
         onClose();
-        navigate(`/`);
+        navigate(`/gallery`);
     };
     
     // const findIndex = () => {
@@ -33,21 +33,21 @@ const Modal = ({isOpen, onClose, pictures}) => {
     const handleNext = () => {
         if (currentPicture.id === pictures.length) {
             setCurrentPicture(pictures[0]);
-            navigate(`/1`);
+            navigate(`/gallery/1`);
             return;
         }
         setCurrentPicture(pictures[currentPicture.id]);
-        navigate(`/${currentPicture.id+1}`)
+        navigate(`/gallery/${currentPicture.id+1}`)
         console.log('current', currentPicture)
     }
     const handlePrev = () => {
         if (currentPicture.id === 1) {
             setCurrentPicture(pictures[pictures.length - 1]);
-            navigate(`/${pictures.length}`);
+            navigate(`/gallery/${pictures.length}`);
             return;
         }
         setCurrentPicture(pictures[currentPicture.id - 2]);
-        navigate(`/${currentPicture.id - 1}`)
+        navigate(`/gallery/${currentPicture.id - 1}`)
         console.log( 'current', currentPicture)
 
     }

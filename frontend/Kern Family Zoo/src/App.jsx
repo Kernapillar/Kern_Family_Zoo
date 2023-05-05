@@ -70,20 +70,20 @@ function App() {
   const navButtons = () => {
     return (
       <ul>
-        <li><Link to="/">Home</Link></li>
+        <li><Link to="/gallery">Home</Link></li>
         <li><Link to="/about">About</Link></li>
       </ul>
     )
   };
 
   return (
-    <BrowserRouter>
+    <BrowserRouter> 
       <img src={LOGO} alt="" className='logo' />
       {navButtons()}
       <Routes>
         <Route exact path="/about" element={<About/>}/>
-        <Route exact path="/" element={<Gallery pics={pics} modalState={false}/>}/>
-        <Route path="/:pictureId"  element={<Gallery pics={pics} modalState={true}/>}/>
+        <Route exact path="/gallery" element={<Gallery pics={pics} modalState={false}/>}/>
+        <Route path="/gallery/:pictureId"  element={<Gallery pics={pics} modalState={true}/>}/>
 
       </Routes>
     

@@ -77,7 +77,7 @@ const Gallery = (props) =>{
 
   const handleOpenModal = (picture) => {
     console.log("PIC", picture)
-    navigate(`/${picture.id}`);
+    navigate(`/gallery/${picture.id}`);
 
     setModalIsOpen(true);
   }
