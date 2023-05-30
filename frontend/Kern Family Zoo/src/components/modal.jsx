@@ -3,13 +3,25 @@ import { useNavigate, useParams } from "react-router-dom";
 import '../styles/modal.css';
 
 const Modal = ({isOpen, onClose, pictures}) => {
-
+    
     const numPics = pictures.length;
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const pictureId = useParams().pictureId;
     const [currentPicture, setCurrentPicture] = useState(pictures[pictureId - 1])
     const navigate = useNavigate();
-    console.log("PARAMS", pictureId)
+    // console.log("PARAMS", pictureId)
+
+    const findIndex = () => {
+        console.log(pictureId);
+        for (let i = 0; i < numPics; i++) {
+            let pic = pictures[i]; 
+            console.log("I here = ", pic.id, pictureId)
+            if (pic.id === parseInt(pictureId)) return i; 
+        }
+        console.log("WHAT HAPPENED FINDING INDEX")
+    };
+    console.log(numPics, findIndex(), pictures)
+
 
 
     useEffect(() => {
@@ -22,12 +34,7 @@ const Modal = ({isOpen, onClose, pictures}) => {
         navigate(`/gallery`);
     };
     
-    // const findIndex = () => {
-    //     for (let i = 0; i < numPics; i++) {
-    //         let pic = picture[i]; 
-    //         if (pic.id === pictureId)
-    //     }
-    // };
+    
 
     const handleNext = () => {
         if (currentPicture.id === pictures.length) {
