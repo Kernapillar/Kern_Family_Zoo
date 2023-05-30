@@ -11,7 +11,6 @@ const Modal = ({isOpen, onClose, pictures}) => {
     const navigate = useNavigate();
     console.log("PARAMS", pictureId)
 
-    
 
     useEffect(() => {
         setModalIsOpen(isOpen);
