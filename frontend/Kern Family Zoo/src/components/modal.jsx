@@ -7,25 +7,27 @@ const Modal = ({isOpen, onClose, pictures}) => {
     const numPics = pictures.length;
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const pictureId = useParams().pictureId;
-    const [currentPicture, setCurrentPicture] = useState(pictures[pictureId - 1])
+
+    const [currentPictureIndex, setCurrentPictureIndex] = useState(0);
+
+    const [currentPicture, setCurrentPicture] = useState(pictures[currentPictureIndex])
     const navigate = useNavigate();
-    // console.log("PARAMS", pictureId)
 
     const findIndex = () => {
-        console.log(pictureId);
         for (let i = 0; i < numPics; i++) {
-            let pic = pictures[i]; 
-            console.log("I here = ", pic.id, pictureId)
-            if (pic.id === parseInt(pictureId)) return i; 
+            let pic = pictures[i];
+            if (pic.id === parseInt(pictureId)) return i;
         }
-        console.log("WHAT HAPPENED FINDING INDEX")
+        console.log("FIND INDEX BROKEN");
+        return -1; // Return -1 if picture ID is not found
     };
-    console.log(numPics, findIndex(), pictures)
 
 
 
     useEffect(() => {
         setModalIsOpen(isOpen);
+        const index = findIndex();
+        if (index !== -1) setCurrentPictureIndex(index);
     }, [isOpen]);
 
     const handleClose = () => {
@@ -37,26 +39,18 @@ const Modal = ({isOpen, onClose, pictures}) => {
     
 
     const handleNext = () => {
-        if (currentPicture.id === pictures.length) {
-            setCurrentPicture(pictures[0]);
-            navigate(`/gallery/1`);
-            return;
-        }
-        setCurrentPicture(pictures[currentPicture.id]);
-        navigate(`/gallery/${currentPicture.id+1}`)
-        console.log('current', currentPicture)
-    }
-    const handlePrev = () => {
-        if (currentPicture.id === 1) {
-            setCurrentPicture(pictures[pictures.length - 1]);
-            navigate(`/gallery/${pictures.length}`);
-            return;
-        }
-        setCurrentPicture(pictures[currentPicture.id - 2]);
-        navigate(`/gallery/${currentPicture.id - 1}`)
-        console.log( 'current', currentPicture)
-
-    }
+        const nextIndex = (currentPictureIndex + 1) % pictures.length;
+        setCurrentPictureIndex(nextIndex);
+        setCurrentPicture(pictures[nextIndex]);
+        navigate(`/gallery/${pictures[nextIndex].id}`);
+      };
+      
+      const handlePrev = () => {
+        const prevIndex = (currentPictureIndex - 1 + pictures.length) % pictures.length;
+        setCurrentPictureIndex(prevIndex);
+        setCurrentPicture(pictures[prevIndex])
+        navigate(`/gallery/${pictures[prevIndex].id}`);
+    };
    
 
     return (
