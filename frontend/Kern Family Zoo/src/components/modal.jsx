@@ -5,7 +5,6 @@ import '../styles/modal.css';
 const Modal = ({isOpen, onClose, pictures}) => {
     
     const numPics = pictures.length;
-    const [modalIsOpen, setModalIsOpen] = useState(false);
     const pictureId = useParams().pictureId;
 
     const [currentPictureIndex, setCurrentPictureIndex] = useState(0);
@@ -25,7 +24,6 @@ const Modal = ({isOpen, onClose, pictures}) => {
 
 
     useEffect(() => {
-        setModalIsOpen(isOpen);
         const index = findIndex();
         if (index !== -1) {
             setCurrentPictureIndex(index);
@@ -34,7 +32,6 @@ const Modal = ({isOpen, onClose, pictures}) => {
     }, [isOpen]);
 
     const handleClose = () => {
-        setModalIsOpen(false);
         onClose();
         navigate(`/gallery`);
     };
