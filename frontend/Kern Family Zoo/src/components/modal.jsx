@@ -27,7 +27,10 @@ const Modal = ({isOpen, onClose, pictures}) => {
     useEffect(() => {
         setModalIsOpen(isOpen);
         const index = findIndex();
-        if (index !== -1) setCurrentPictureIndex(index);
+        if (index !== -1) {
+            setCurrentPictureIndex(index);
+            setCurrentPicture(pictures[index]);
+        }
     }, [isOpen]);
 
     const handleClose = () => {
