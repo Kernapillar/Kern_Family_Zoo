@@ -58,12 +58,19 @@ const Modal = ({isOpen, onClose, pictures}) => {
              <div className="modal-visual">
                 <img src={currentPicture.src} alt="modal" />
              </div>
-             <div className="modal-controls">
-                <button onClick={handlePrev}>{`<<`}</button>
-                <button onClick={handleNext}>{`>>`}</button>
-                <span className="modal-close" onClick={handleClose}>
-                    &times;
-                </span>
+             <div className="right-modal">
+                <div className="modal-controls">
+                    <button onClick={handlePrev}>{`<<`}</button>
+                    <button onClick={handleNext}>{`>>`}</button>
+                    <span className="modal-close" onClick={handleClose}>
+                        &times;
+                    </span>
+                    
+                </div>
+                <div className="modal-info">
+                    <p>{currentPictureIndex + 1} / {numPics} </p>
+                </div>
+
              </div>
         </div>
     )

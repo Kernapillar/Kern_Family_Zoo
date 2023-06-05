@@ -23,9 +23,21 @@
     border: 1px solid blue;
 }
 
+.right-modal {
+    height:100%;
+    width:20%;
+    display: block;
+    
+}
+
+.modal-info {
+    color: white;
+    border: 1px solid red;
+}
+
 .modal-controls {
-    height: 100%;
-    width: 20%;
+    height:10%;
+    width: 100%;
     padding-top: 20px;
     padding-bottom: 20px;
     display: flex;
@@ -41,7 +53,6 @@
     /* opacity: 50%; */
     background-color: grey;
 }
-
 
 .modal-close {
     position: absolute;
