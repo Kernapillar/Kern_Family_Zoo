@@ -20,13 +20,14 @@
     height: 100%;
     padding: 20px;
     background-color: rgb(25, 25, 25);
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 }
 
 .right-modal {
     height:100%;
     width:20%;
     display: block;
+    border-left: 1px solid grey;
     
 }
 
@@ -42,16 +43,24 @@
     padding-bottom: 20px;
     display: flex;
     justify-content: space-evenly;
-    border: 1px solid green;
+    /* border: 1px solid green; */
     
 }
+
+.modal-controls :first-child {
+    border-right: 1px solid grey;
+}
+
 .modal-controls button {
     margin-top: 50px;
     height: 40px; 
     width: 100%;
     border-radius: 0;
     /* opacity: 50%; */
-    background-color: grey;
+    color: grey;
+    background-color: black;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
 }
 
 .modal-close {
@@ -60,7 +69,7 @@
     right: 10px;
     font-size: 24px;
     font-weight: bold;
-    color: #fff;
+    color: grey;
     cursor: pointer;
 }
 .modal img{
