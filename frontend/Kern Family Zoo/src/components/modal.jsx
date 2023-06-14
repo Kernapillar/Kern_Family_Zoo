@@ -69,6 +69,8 @@ const Modal = ({isOpen, onClose, pictures}) => {
                 </div>
                 <div className="modal-info">
                     <p>{currentPictureIndex + 1} / {numPics} </p>
+                    <p>{currentPicture.commonName}</p>
+                    <p>Scientific Name: {currentPicture.scientificName}</p>
                 </div>
 
              </div>
